@@ -1,0 +1,23 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Git directory
+.git/
+
+# IDE files
+.idea/
+.vscode/
+
+# Downloaded model files (if you want to download them fresh)
+# Uncomment if needed:
+# .cache/
+# models/
+
+# Any other files you don't need in the container

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  sentiment-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # For development: mount your code so changes reflect without rebuilding
+      - ./:/app
+      # Mount a volume for model caching to avoid re-downloading models
+      - huggingface_cache:/root/.cache/huggingface
+    restart: unless-stopped
+    # For development, use this command to enable hot reloading
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  huggingface_cache:
+    # This creates a named volume for persisting downloaded models
